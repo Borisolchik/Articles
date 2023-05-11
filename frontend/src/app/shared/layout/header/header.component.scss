@@ -1,0 +1,33 @@
+@import "../../../../assets/styles/variables";
+
+.header {
+  .container {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+
+    .logo {
+      margin-right: 100px;
+    }
+
+    .header-menu {
+
+      nav ul {
+        display: flex;
+
+        li {
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            color: $dark-blue-color;
+          }
+        }
+      }
+    }
+  }
+}
