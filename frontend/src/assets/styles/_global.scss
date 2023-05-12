@@ -7,3 +7,20 @@ html, body {
   max-width: $container-width;
   margin: 0 auto;
 }
+
+.btn {
+  background: $light-blue-color;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #FFFFFF;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(112, 159, 220, 0.8);
+  }
+}

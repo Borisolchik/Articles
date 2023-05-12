@@ -1,0 +1,126 @@
+@import "../../../../assets/styles/variables";
+
+.footer {
+  background: #B9D5FD;
+  padding: 40px 0 54px;
+
+  .container {
+
+    .footer-top {
+      display: flex;
+      margin-bottom: 40px;
+
+      .logo {
+        margin-right: 40px;
+      }
+
+      .footer-menu {
+        nav ul {
+          display: flex;
+          align-items: center;
+
+          li {
+            list-style: none;
+            margin-right: 20px;
+
+            a {
+              font-family: 'Montserrat', sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              color: $dark-blue-color;
+              text-decoration: none;
+
+              &.active {
+                color: $light-blue-color;
+              }
+
+              &:hover {
+                color: $light-blue-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer-main {
+      display: flex;
+      margin-bottom: 6px;
+
+      .footer-main-item {
+        margin-right: 60px;
+
+        .footer-main-title {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          color: $light-blue-color;
+          margin-bottom: 10px;
+        }
+
+        .footer-main-description {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          color: $dark-blue-color;
+          max-width: 253px;
+
+          .footer-main-phone {
+            margin-bottom: 10px;
+            a {
+              font-family: 'Montserrat', sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              color: $dark-blue-color;
+              text-decoration: none;
+
+              &:hover {
+                color: $light-blue-color;
+              }
+            }
+          }
+
+          a {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            color: $dark-blue-color;
+            svg {
+              margin-right: 12px;
+
+              &:hover {
+                path {
+                  stroke: $light-blue-color;
+                  fill: $light-blue-color;
+                }
+              }
+            }
+
+            &:hover {
+              color: $light-blue-color;
+            }
+          }
+
+          .btn {
+            width: 153px;
+            height: 36px;
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: $light-blue-color;
+    }
+  }
+}
