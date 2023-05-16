@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LayoutComponent} from "./shared/layout/layout.component";
 import {MainComponent} from "./views/main/main.component";
+import {AgreementComponent} from "./views/user/agreement/agreement.component";
 
 const routes: Routes = [
   {
