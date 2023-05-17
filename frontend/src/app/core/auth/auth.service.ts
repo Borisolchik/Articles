@@ -4,6 +4,7 @@ import {DefaultResponseType} from "../../../types/default-response.type";
 import {LoginResponseType} from "../../../types/login-response.type";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {UserInfoType} from "../../../types/user-info.type";
 
 @Injectable({
   providedIn: 'root'

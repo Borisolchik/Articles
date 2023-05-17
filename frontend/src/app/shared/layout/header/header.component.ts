@@ -4,6 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {UserInfoType} from "../../../../types/user-info.type";
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
 
   isLogged: boolean = false;
+  name: string = '';
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
