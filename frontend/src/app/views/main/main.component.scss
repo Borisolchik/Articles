@@ -1,0 +1,72 @@
+@import "../../../assets/styles/variables";
+
+.banner {
+  .container {
+
+  }
+}
+
+.services {
+  padding: 60px 0;
+  .container {
+    .title {
+      margin-bottom: 40px;
+    }
+
+    .service-items {
+      display: flex;
+      justify-content: space-between;
+
+      .services-item {
+        .services-item-image {
+          width: 291px;
+          height: 291px;
+          border-radius: 5px;
+          background-size: cover;
+          background-position: center;
+        }
+        .services-item-title {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 20px;
+          color: $light-blue-color;
+          margin-top: 15px;
+          margin-bottom: 10px;
+        }
+
+        .services-item-description {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 130%;
+          color: $dark-blue-color;
+          max-width: 286px;
+          height: 90px;
+        }
+
+        .services-item-info {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 15px;
+          .services-item-price {
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            color: $light-blue-color;
+          }
+
+          .services-item-action {
+            .btn {
+              width: 163px;
+              height: 51px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
