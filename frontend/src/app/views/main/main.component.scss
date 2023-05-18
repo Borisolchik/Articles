@@ -148,3 +148,56 @@
     }
   }
 }
+
+.about-us {
+  padding: 60px 0;
+  .container {
+    display: flex;
+    .about-us-image {
+      width: 460px;
+      height: 453px;
+      border-radius: 5px;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-right: 68px;
+    }
+
+    .about-us-info {
+      .title {
+        margin-bottom: 20px;
+      }
+
+      .about-us-description {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: #1E1A2B;
+        max-width: 633px;
+        margin-bottom: 40px;
+
+        span {
+          font-weight: 500;
+        }
+      }
+
+      .about-us-advantages {
+        .advantages-title {
+          font-family: 'Lora', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 26px;
+          color: $light-blue-color;
+          margin-bottom: 20px;
+        }
+        .advantages-items {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          gap: 20px;
+        }
+      }
+    }
+  }
+}
