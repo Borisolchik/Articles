@@ -58,3 +58,20 @@ html, body {
   line-height: 130%;
   color: $light-blue-color;
 }
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+  position: absolute;
+  bottom: 20px;
+  left: calc(50% - 30px);
+  z-index: 3;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  border: 1px solid #FFFFFF;
+  background: transparent;
+  margin: 5px 10px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: #FFFFFF;
+}

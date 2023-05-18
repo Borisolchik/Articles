@@ -2,6 +2,84 @@
 
 .banner {
   .container {
+    position: relative;
+    .banner-item {
+      height: 500px;
+      width: 100%;
+      background-position: right;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      .banner-image-circle {
+        position: absolute;
+        width: 1405px;
+        height: 1404px;
+        left: -702px;
+        top: -702px;
+        background: #B9D5FD;
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .banner-info {
+        z-index: 3;
+        position: absolute;
+        top: 100px;
+        left: 80px;
+        .info-title {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: 0.4em;
+          text-transform: uppercase;
+          color: $light-blue-color;
+        }
+        .banner-title {
+          font-family: 'Lora', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 50px;
+          line-height: 130%;
+          color: #FFFFFF;
+          max-width: 610px;
+          span {
+            color: $light-blue-color;
+          }
+        }
+
+        .banner-description {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 130%;
+          color: #FFFFFF;
+          max-width: 456px;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+
+        .btn {
+          width: 163px;
+          height: 51px;
+          margin-top: 40px;
+        }
+      }
+    }
+
+    .btn-success {
+      position: absolute;
+      top: calc(50% - 14px);
+      z-index: 3;
+      cursor: pointer;
+      &.btn-success-prev {
+        left: 11px;
+      }
+      &.btn-success-next {
+        right: 11px;
+      }
+    }
 
   }
 }
