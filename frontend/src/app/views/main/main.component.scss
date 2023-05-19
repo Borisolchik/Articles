@@ -195,7 +195,28 @@
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(2, 1fr);
-          gap: 20px;
+          gap: 20px 71px;
+
+          .advantages-item {
+            display: flex;
+            align-items: center;
+
+
+            .advantages-item-text {
+              font-family: 'Montserrat', sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 130%;
+              color: #1E1A2B;
+              max-width: 256px;
+              margin-left: 20px;
+
+              span {
+                font-weight: 500;
+              }
+            }
+          }
         }
       }
     }
