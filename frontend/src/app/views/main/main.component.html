@@ -184,20 +184,55 @@
   <div class="container">
     <div class="general-title">Популярные статьи из блога</div>
     <div class="articles-items">
-      <article-card></article-card>
+      <article-card [article]="article" *ngFor="let article of articles"></article-card>
     </div>
-    <div class="articles-all">
+    <a class="articles-all">
       Перейти в блог
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.44392 1C5.59871 1 5.75349 1.05652 5.87569 1.17765L11.1873 6.44254C12.0508 7.29849 12.0508 8.70353 11.1873 9.55948L5.87569 14.8244C5.63944 15.0585 5.2484 15.0585 5.01215 14.8244C4.7759 14.5902 4.7759 14.2026 5.01215 13.9684L10.3238 8.70353C10.7148 8.31593 10.7148 7.68608 10.3238 7.29849L5.01215 2.0336C4.7759 1.79942 4.7759 1.41182 5.01215 1.17765C5.13435 1.0646 5.28914 1 5.44392 1Z" fill="#709FDC"/>
       </svg>
-    </div>
+    </a>
   </div>
 </section>
 
 <section class="reviews">
   <div class="container">
-
+    <div class="general-title">Отзывы о нашей работе</div>
+    <owl-carousel-o [options]="reviewOptions" #owlCarReview>
+      <ng-template carouselSlide>
+        <div class="review">
+          <div class="review-info">
+            <div class="review-info-image" style="background-image: url('assets/images/page/review1.png')"></div>
+            <div class="review-info-name">Станислав</div>
+          </div>
+          <div class="review-description">Спасибо огромное АйтиШторму за прекрасный блог с полезными статьями! Именно они и побудили меня углубиться в тему SMM и начать свою карьеру.</div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="review">
+          <div class="review-info">
+            <div class="review-info-image" style="background-image: url('assets/images/page/review2.png')"></div>
+            <div class="review-info-name">Мария</div>
+          </div>
+          <div class="review-description">Обратилась в АйтиШторм за помощью копирайтера. Ни разу ещё не пожалела! Ребята действительно вкладывают душу в то, что делают, и каждый текст, который я получаю, с нетерпением хочется выложить в сеть.</div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="review">
+          <div class="review-info">
+            <div class="review-info-image" style="background-image: url('assets/images/page/review3.png')"></div>
+            <div class="review-info-name">Алёна</div>
+          </div>
+          <div class="review-description">Команда АйтиШторма за такой короткий промежуток времени сделала невозможное: от простой фирмы по услуге продвижения выросла в мощный блог о важности личного бренда. Класс!</div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+    <a class="btn-success btn-success-prev" (click)="owlCarReview.prev()">
+      <img src="assets/images/page/prev.png" alt="Arrow-prev">
+    </a>
+    <a class="btn-success btn-success-next" (click)="owlCarReview.next()">
+      <img src="assets/images/page/next.png" alt="Arrow-next">
+    </a>
   </div>
 </section>
 

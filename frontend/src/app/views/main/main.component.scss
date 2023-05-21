@@ -225,7 +225,40 @@
 
 .popular-articles {
   .container {
+    .general-title {
+      margin-bottom: 40px;
+    }
 
+    .articles-items {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .articles-all {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      color: $light-blue-color;
+      text-decoration: none;
+      cursor: pointer;
+
+      svg {
+        margin-left: 14px;
+        margin-top: 2px;
+      }
+
+      &:hover {
+      color: rgba(112, 159, 220, 0.8);
+        path {
+          fill: rgba(112, 159, 220, 0.8);
+        }
+      }
+    }
   }
 }
 
