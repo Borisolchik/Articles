@@ -224,6 +224,7 @@
 }
 
 .popular-articles {
+  padding: 60px 0;
   .container {
     .general-title {
       margin-bottom: 40px;
@@ -263,8 +264,66 @@
 }
 
 .reviews {
+  padding: 60px 0;
   .container {
+    position: relative;
+    .general-title {
+      margin-bottom: 20px;
+    }
 
+    .review {
+      padding: 30px;
+      border: 1.5px solid $light-blue-color;
+      border-radius: 5px;
+      height: 267px;
+      box-sizing: border-box;
+
+      .review-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .review-info-image {
+          width: 60px;
+          height: 60px;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-right: 26px;
+        }
+
+        .review-info-name {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 18px;
+          color: $light-blue-color;
+        }
+      }
+
+      .review-description {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: $dark-blue-color;
+        max-width: 336px;
+      }
+    }
+
+    .btn-success-prev {
+      position: absolute;
+      bottom: 130px;
+      left: -25px;
+      cursor: pointer;
+    }
+
+    .btn-success-next {
+      position: absolute;
+      bottom: 130px;
+      right: -25px;
+      cursor: pointer;
+    }
   }
 }
 
