@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {OwlOptions} from "ngx-owl-carousel-o";
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticleType} from "../../../types/article.type";
@@ -71,6 +71,7 @@ export class MainComponent implements OnInit {
     name: ['', [Validators.required]],
     phone: ['', [Validators.required]],
   })
+  @ViewChild('bannerPopup') bannerPopup!: TemplateRef<ElementRef>;
 
   constructor(private articleService: ArticleService,
               private dialog: MatDialog,
@@ -82,5 +83,13 @@ export class MainComponent implements OnInit {
       .subscribe((data: ArticleType[]) => {
         this.articles = data;
       })
+  }
+
+  OpenBannerPopup() {
+    this.dialog.open(this.bannerPopup);
+  }
+
+  closeBannerPopup() {
+    this.dialog.closeAll();
   }
 }

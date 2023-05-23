@@ -7,7 +7,7 @@
           <div class="banner-info">
             <div class="info-title">Предложение месяца</div>
             <div class="banner-title">Продвижение в Instagram для вашего бизнеса <span>-15%</span>!</div>
-            <button class="btn">Подробнее</button>
+            <button class="btn" (click)="OpenBannerPopup()">Подробнее</button>
           </div>
         </div>
       </ng-template>
@@ -310,7 +310,7 @@
 
 <ng-template #bannerPopup>
   <div class="banner-popup" [formGroup]="bannerForm">
-    <div class="banner-popup-close">
+    <div class="banner-popup-close" (click)="closeBannerPopup()">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
         <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
@@ -339,7 +339,7 @@
         </div>
       </div>
       <div class="auth-button">
-        <button class="button" [disabled]="bannerForm.invalid">Оставить заявку</button>
+        <button class="btn" [disabled]="bannerForm.invalid">Оставить заявку</button>
       </div>
     </div>
   </div>
