@@ -13,6 +13,9 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/materia
 import {MatMenuModule} from "@angular/material/menu";
 import {CarouselModule} from "ngx-owl-carousel-o";
 import { ArticleCardComponent } from './shared/components/article-card/article-card.component';
+import {SharedModule} from "./shared/shared.module";
+import {MatDialogModule} from "@angular/material/dialog";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { ArticleCardComponent } from './shared/components/article-card/article-c
     MatSnackBarModule,
     MatMenuModule,
     CarouselModule,
+    SharedModule,
+    MatDialogModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],

@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {OwlOptions} from "ngx-owl-carousel-o";
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticleType} from "../../../types/article.type";
+import {AuthService} from "../../core/auth/auth.service";
+import {UserService} from "../../shared/services/user.service";
+import {UserInfoType} from "../../../types/user-info.type";
+import {DefaultResponseType} from "../../../types/default-response.type";
+import { MatDialog } from '@angular/material/dialog';
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-main',
@@ -60,8 +66,15 @@ export class MainComponent implements OnInit {
     nav: false
   }
   articles: ArticleType[] = [];
+  bannerForm = this.fb.group({
+    category: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
+  })
 
-  constructor(private articleService: ArticleService) {
+  constructor(private articleService: ArticleService,
+              private dialog: MatDialog,
+              private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
