@@ -75,3 +75,7 @@ html, body {
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: #FFFFFF;
 }
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 10px!important;
+}

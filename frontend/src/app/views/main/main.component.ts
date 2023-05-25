@@ -2,12 +2,11 @@ import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/co
 import {OwlOptions} from "ngx-owl-carousel-o";
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticleType} from "../../../types/article.type";
-import {AuthService} from "../../core/auth/auth.service";
-import {UserService} from "../../shared/services/user.service";
-import {UserInfoType} from "../../../types/user-info.type";
 import {DefaultResponseType} from "../../../types/default-response.type";
 import { MatDialog } from '@angular/material/dialog';
 import {FormBuilder, Validators} from "@angular/forms";
+import {RequestType} from "../../../types/request.type";
+import {BannerService} from "../../shared/services/banner.service";
 
 @Component({
   selector: 'app-main',
@@ -67,15 +66,18 @@ export class MainComponent implements OnInit {
   }
   articles: ArticleType[] = [];
   bannerForm = this.fb.group({
-    category: ['', [Validators.required]],
+    service: ['', [Validators.required]],
     name: ['', [Validators.required]],
     phone: ['', [Validators.required]],
   })
   @ViewChild('bannerPopup') bannerPopup!: TemplateRef<ElementRef>;
+  @ViewChild('bannerPopupSuccess') bannerPopupSuccess!: TemplateRef<ElementRef>;
+  title_service: string = '';
 
   constructor(private articleService: ArticleService,
               private dialog: MatDialog,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private bannerService: BannerService) {
   }
 
   ngOnInit(): void {
@@ -85,11 +87,40 @@ export class MainComponent implements OnInit {
       })
   }
 
-  OpenBannerPopup() {
+  openBannerPopup(service: string) {
+    this.bannerForm.value.service = service;
     this.dialog.open(this.bannerPopup);
   }
 
   closeBannerPopup() {
     this.dialog.closeAll();
+  }
+
+  requestBanner() {
+    if (this.bannerForm.valid &&
+      this.bannerForm.value.service &&
+      this.bannerForm.value.name &&
+      this.bannerForm.value.phone) {
+      const paramsObject: RequestType = {
+        name: this.bannerForm.value.name,
+          phone:  this.bannerForm.value.phone,
+          service: this.bannerForm.value.service,
+          type: 'order'
+      }
+
+      this.bannerService.requestBanner(paramsObject)
+        .subscribe({
+          next: (data:DefaultResponseType) => {
+            this.dialog.closeAll();
+            this.dialog.open(this.bannerPopupSuccess);
+            // this.dialogRef = this.dialog.open(this.popup);
+            // this.dialogRef.backdropClick()
+            //   .subscribe(() => {
+            //     this.router.navigate(['/']);
+            //   });
+            // this.cartService.setCount(0);
+          }
+        });
+    }
   }
 }

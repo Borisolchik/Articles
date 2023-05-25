@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/variables";
+
+.catalog {
+  padding: 80px 0 120px;
+
+  .container {
+    .general-title {
+      margin-bottom: 40px;
+    }
+
+    .catalog-head {
+      display: flex;
+      justify-content: space-between;
+
+      .catalog-applied-filters {
+        display: flex;
+
+        .catalog-applied-filter {
+          background: #FFFFFF;
+          border: 1.5px solid $light-blue-color;
+          border-radius: 5px;
+          padding: 8px 20px;
+          display: flex;
+          align-items: center;
+
+          span {
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            color: $light-blue-color;
+            margin-right: 8px;
+          }
+
+          a {
+            cursor: pointer;
+
+            svg {
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+
+      .catalog-sorting {
+        display: flex;
+        align-items: center;
+        width: 148px;
+        justify-content: space-between;
+        cursor: pointer;
+
+        span {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          color: #071739;
+        }
+
+      }
+    }
+  }
+}

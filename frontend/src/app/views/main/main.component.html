@@ -7,7 +7,7 @@
           <div class="banner-info">
             <div class="info-title">Предложение месяца</div>
             <div class="banner-title">Продвижение в Instagram для вашего бизнеса <span>-15%</span>!</div>
-            <button class="btn" (click)="OpenBannerPopup()">Подробнее</button>
+            <button class="btn" (click)="openBannerPopup('Таргет')">Подробнее</button>
           </div>
         </div>
       </ng-template>
@@ -18,7 +18,7 @@
             <div class="info-title">Акция</div>
             <div class="banner-title">Нужен грамотный <span>копирайтер</span>?</div>
             <div class="banner-description">Весь декабрь у нас действует акция на работу копирайтера.</div>
-            <button class="btn">Подробнее</button>
+            <button class="btn" (click)="openBannerPopup('Таргет')">Подробнее</button>
           </div>
         </div>
       </ng-template>
@@ -29,7 +29,7 @@
             <div class="info-title">Новость дня</div>
             <div class="banner-title"><span>6 место</span> в ТОП-10 SMM-агенств Москвы!</div>
             <div class="banner-description">Мы благодарим каждого, кто голосовал за нас!</div>
-            <button class="btn">Подробнее</button>
+            <button class="btn" (click)="openBannerPopup('Таргет')">Подробнее</button>
           </div>
         </div>
       </ng-template>
@@ -321,9 +321,9 @@
       <div class="auth-inputs">
         <div class="auth-input">
           <input type="text" class="input"
-                 [ngStyle]="{'border-color': bannerForm.get('category')?.invalid
-                 && (bannerForm.get('category')?.dirty || bannerForm.get('category')?.touched) ? 'red' : ''}"
-                 formControlName="category" placeholder="Категория">
+                 [ngStyle]="{'border-color': bannerForm.get('service')?.invalid
+                 && (bannerForm.get('service')?.dirty || bannerForm.get('service')?.touched) ? 'red' : ''}"
+                 formControlName="service" placeholder="Категория">
         </div>
         <div class="auth-input">
           <input type="text" class="input"
@@ -339,8 +339,24 @@
         </div>
       </div>
       <div class="auth-button">
-        <button class="btn" [disabled]="bannerForm.invalid">Оставить заявку</button>
+        <button class="btn" [disabled]="bannerForm.invalid" (click)="requestBanner()">Оставить заявку</button>
       </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #bannerPopupSuccess>
+  <div class="banner-success">
+    <div class="banner-popup-close" (click)="closeBannerPopup()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+        <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="banner-success-title general-title">Спасибо за вашу заявку!</div>
+    <div class="banner-success-description">Мы свяжемся с вами при первой же возможности.</div>
+    <div class="auth-button">
+      <button class="btn" (click)="closeBannerPopup()">Окей</button>
     </div>
   </div>
 </ng-template>

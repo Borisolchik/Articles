@@ -427,6 +427,7 @@
 
   .banner-popup-title {
     margin-bottom: 20px;
+    text-align: center;
   }
 
   .auth-input {
@@ -444,5 +445,36 @@
       width: 422px;
       height: 51px;
     }
+  }
+}
+
+.banner-success {
+  padding: 163px 142px;
+  text-align: center;
+  position: relative;
+
+  .banner-popup-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .banner-success-title {
+    margin-bottom: 20px;
+  }
+
+  .banner-success-description {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #1E1A2B;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    width: 73px;
+    height: 36px;
   }
 }
