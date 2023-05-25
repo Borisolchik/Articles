@@ -14,4 +14,8 @@ export class ArticleService {
   getTopArticles(): Observable<ArticleType[]> {
     return this.http.get<ArticleType[]>(environment.api + 'articles/top');
   }
+
+  getArticles(): Observable<{count: number,pages: number,items: ArticleType[]}> {
+    return this.http.get<{count: number,pages: number,items: ArticleType[]}>(environment.api + 'articles');
+  }
 }

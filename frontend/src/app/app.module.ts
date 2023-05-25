@@ -23,8 +23,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent,
-    ArticleCardComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
