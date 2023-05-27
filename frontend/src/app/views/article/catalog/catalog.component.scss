@@ -69,7 +69,65 @@
     }
 
     .pagination {
+      margin-top: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
+      .pagination-arrow {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          &.zero {
+            display: none;
+          }
+
+        }
+
+        &.disabled {
+          img {
+            &.zero {
+              display: block;
+            }
+
+            &.active {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .pagination-pages {
+        margin-left: 50px;
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+
+        .pagination-page {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          margin-right: 40px;
+          cursor: pointer;
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          color: $dark-blue-color;
+
+          &.active {
+            color: #B9D5FD;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
     }
   }
 }
