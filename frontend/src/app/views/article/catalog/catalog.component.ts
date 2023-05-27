@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticleType} from "../../../../types/article.type";
+import {CategoryService} from "../../../shared/services/category.service";
+import {CategoryType} from "../../../../types/category.type";
 
 @Component({
   selector: 'app-catalog',
@@ -10,7 +12,9 @@ import {ArticleType} from "../../../../types/article.type";
 export class CatalogComponent implements OnInit {
 
   articles: ArticleType[] = [];
-  constructor(private articleService: ArticleService) {
+  categories: CategoryType[] = [];
+  constructor(private articleService: ArticleService,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
@@ -18,5 +22,13 @@ export class CatalogComponent implements OnInit {
       .subscribe(data => {
         this.articles = data.items;
       })
+
+
+    this.categoryService.getCategories()
+      .subscribe(data => {
+        this.categories = data;
+      })
+
+
   }
 }
