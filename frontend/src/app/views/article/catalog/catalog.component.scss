@@ -44,7 +44,6 @@
       }
 
       .catalog-sorting {
-        width: 257px;
         box-sizing: border-box;
         position: relative;
 
@@ -55,7 +54,6 @@
           justify-content: space-between;
           cursor: pointer;
           margin-left: 25px;
-          padding: 12px 23px;
 
           span {
             font-family: 'Montserrat', sans-serif;
@@ -63,6 +61,85 @@
             font-weight: 400;
             font-size: 16px;
             color: #071739;
+          }
+
+          svg.open {
+            display: none;
+          }
+          svg.close {
+            display: block;
+          }
+        }
+
+        .catalog-sorting-body {
+          position: absolute;
+          width: 100%;
+          z-index: 3;
+          display: none;
+          right:0;
+          padding: 12px 23px;
+          box-sizing: border-box;
+          border: 1.5px solid #B9D5FD;
+          border-radius: 0 0 5px 5px;
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          color: #BEBEBE;
+          background: #FFFFFF;
+
+          .catalog-sorting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+
+            svg.minus {
+              display: none;
+            }
+            svg.plus {
+              display: block;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &.active {
+              color: #071739;
+
+              svg.minus {
+                display: block;
+              }
+              svg.plus {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &.open {
+          width: 257px;
+          margin-left: 25px;
+
+          .catalog-sorting-head {
+            background: #B9D5FD;
+            border-radius: 5px 5px 0 0;
+            padding: 12px 23px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-left: 0;
+
+            svg.open {
+              display: block;
+            }
+            svg.close {
+              display: none;
+            }
+          }
+
+          .catalog-sorting-body {
+            display: block;
           }
         }
       }
