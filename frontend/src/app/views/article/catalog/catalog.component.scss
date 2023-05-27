@@ -11,6 +11,7 @@
     .catalog-head {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 40px;
 
       .catalog-applied-filters {
         display: flex;
@@ -59,6 +60,12 @@
         }
 
       }
+    }
+
+    .catalog-articles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px 24px;
     }
   }
 }
