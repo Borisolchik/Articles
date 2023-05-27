@@ -13,6 +13,8 @@ export class CatalogComponent implements OnInit {
 
   articles: ArticleType[] = [];
   categories: CategoryType[] = [];
+  filterOpen = false;
+
   constructor(private articleService: ArticleService,
               private categoryService: CategoryService) {
   }
@@ -29,6 +31,9 @@ export class CatalogComponent implements OnInit {
         this.categories = data;
       })
 
+  }
 
+  toggleFilter() {
+    this.filterOpen = !this.filterOpen;
   }
 }
