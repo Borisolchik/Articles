@@ -28,5 +28,23 @@
     <div class="catalog-articles">
       <article-card [article]="article" *ngFor="let article of articles"></article-card>
     </div>
+
+    <div class="pagination">
+      <div class="pagination-arrow">
+        <img src="assets/images/page/pagination-prev-zero.png" alt="Arrow-prev-zero">
+        <img src="assets/images/page/pagination-prev.png" alt="Arrow-prev">
+      </div>
+      <div class="pagination-pages">
+        <a class="pagination-page active">1</a>
+        <a class="pagination-page">2</a>
+        <a class="pagination-page">3</a>
+        <a class="pagination-page">4</a>
+        <a class="pagination-page">5</a>
+      </div>
+      <div class="pagination-arrow">
+        <img src="assets/images/page/pagination-next.png" alt="Arrow-next">
+        <img src="assets/images/page/pagination-next-zero.png" alt="Arrow-next-zero">
+      </div>
+    </div>
   </div>
 </div>
