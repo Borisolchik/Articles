@@ -17,6 +17,7 @@ export class CatalogComponent implements OnInit {
   categories: CategoryType[] = [];
   filterOpen = false;
   activeParams: ActiveParamsType = {categories: []};
+  pages: number [] = [];
 
   constructor(private articleService: ArticleService,
               private router: Router,
@@ -26,6 +27,10 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
     this.articleService.getArticles()
       .subscribe(data => {
+        this.pages = [];
+        for (let i=1; i <= data.pages; i++) {
+          this.pages.push(i);
+        }
         this.articles = data.items;
       })
 
@@ -47,5 +52,30 @@ export class CatalogComponent implements OnInit {
     this.router.navigate(['/catalog'], {
       queryParams: this.activeParams
     })
+  }
+
+  openPage(page: number) {
+    this.activeParams.page = page;
+    this.router.navigate(['/catalog'], {
+      queryParams: this.activeParams
+    });
+  }
+
+  openPrevPage() {
+    if (this.activeParams.page && this.activeParams.page > 1) {
+      this.activeParams.page--;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.activeParams
+      });
+    }
+  }
+
+  openNextPage() {
+    if (this.activeParams.page && this.activeParams.page < this.pages.length) {
+      this.activeParams.page++;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.activeParams
+      });
+    }
   }
 }

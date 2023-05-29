@@ -46,21 +46,19 @@
       <article-card [article]="article" *ngFor="let article of articles"></article-card>
     </div>
 
-    <div class="pagination">
-      <div class="pagination-arrow disabled">
-        <img class="zero" src="assets/images/page/pagination-prev-zero.png" alt="Arrow-prev-zero">
-        <img class="active" src="assets/images/page/pagination-prev.png" alt="Arrow-prev">
+    <div class="pagination" *ngIf="pages.length > 1">
+      <div class="pagination-arrow" [class.disables]="activeParams.page ? activeParams.page === 1 : true">
+        <img class="zero" (click)="openPrevPage()" src="assets/images/page/pagination-prev-zero.png" alt="Arrow-prev-zero">
+        <img class="active" (click)="openPrevPage()" src="assets/images/page/pagination-prev.png" alt="Arrow-prev">
       </div>
       <div class="pagination-pages">
-        <a class="pagination-page active">1</a>
-        <a class="pagination-page">2</a>
-        <a class="pagination-page">3</a>
-        <a class="pagination-page">4</a>
-        <a class="pagination-page">5</a>
+        <a class="pagination-page" (click)="openPage(page)"
+          [class.active]="this.activeParams.page ? this.activeParams.page === page : (page === 1)"
+           *ngFor="let page of pages">{{page}}</a>
       </div>
-      <div class="pagination-arrow">
-        <img class="active" src="assets/images/page/pagination-next.png" alt="Arrow-next">
-        <img class="zero" src="assets/images/page/pagination-next-zero.png" alt="Arrow-next-zero">
+      <div class="pagination-arrow" [class.disables]="activeParams.page ? activeParams.page === pages.length : true">
+        <img class="active" (click)="openNextPage()" src="assets/images/page/pagination-next.png" alt="Arrow-next">
+        <img class="zero" (click)="openNextPage()" src="assets/images/page/pagination-next-zero.png" alt="Arrow-next-zero">
       </div>
     </div>
   </div>
