@@ -18,4 +18,12 @@ export class ArticleService {
   getArticles(): Observable<{count: number,pages: number,items: ArticleType[]}> {
     return this.http.get<{count: number,pages: number,items: ArticleType[]}>(environment.api + 'articles');
   }
+
+  getArticle(url: string): Observable<ArticleType> {
+    return this.http.get<ArticleType>(environment.api + 'articles/' + url);
+  }
+
+  getArticleRelated(url: string): Observable<ArticleType[]> {
+    return this.http.get<ArticleType[]>(environment.api + 'articles/related/' + url);
+  }
 }
