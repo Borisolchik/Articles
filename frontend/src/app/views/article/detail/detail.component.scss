@@ -76,5 +76,75 @@
 
       }
     }
+
+    .detail-share {
+      display: flex;
+      align-items: center;
+      margin-bottom: 60px;
+      span {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: $light-blue-color;
+        margin-right: 20px;
+      }
+
+      svg {
+        margin-right: 13px;
+      }
+    }
+
+    .detail-comments {
+      .general-title {
+        margin-bottom: 20px;
+      }
+
+      .detail-comments-description {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        color: $dark-blue-color;
+        margin-bottom: 40px;
+
+        a {
+          color: $light-blue-color;
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+
+      textarea {
+        width: 818px;
+        height: 248px;
+        background: #FFFFFF;
+        border: 1.5px solid #709FDC;
+        border-radius: 3px;
+        padding: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        color: $dark-blue-color;
+        resize: none;
+
+        &::placeholder {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          color: #A8ABA7;
+        }
+      }
+
+      .add-comment {
+        margin-top: 20px;
+        .btn {
+          width: 422px;
+          height: 51px;
+        }
+      }
+    }
   }
 }
