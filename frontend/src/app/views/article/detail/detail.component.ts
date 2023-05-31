@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticleType} from "../../../../types/article.type";
-import { environment } from 'src/environments/environment';
+import {environment} from 'src/environments/environment';
 import {AuthService} from "../../../core/auth/auth.service";
 
 @Component({
