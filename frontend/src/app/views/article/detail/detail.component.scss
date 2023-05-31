@@ -153,6 +153,48 @@
           height: 51px;
         }
       }
+
+      .detail-comments-items {
+        .detail-comments-item {
+          .detail-comments-item-header {
+            .detail-comments-item-header-image {
+              width: 60px;
+              height: 60px;
+              background: #B9D5FD;
+              border: 2px solid #709FDC;
+              border-radius: 50%;
+            }
+
+            .detail-comments-item-header-info {
+              .detail-comments-item-header-name {
+
+              }
+
+              .detail-comments-item-header-time {
+
+              }
+            }
+          }
+
+          .detail-comments-item-main {
+
+          }
+
+          .detail-comments-item-footer {
+            .detail-comments-item-footer-like {
+
+            }
+
+            .detail-comments-item-footer-dislike {
+
+            }
+
+            .detail-comments-item-footer-info {
+
+            }
+          }
+        }
+      }
     }
   }
 }
