@@ -1,7 +1,7 @@
 const RequestModel = require("../models/request.model");
 const ValidationUtils = require("../utils/validation.utils");
 const mongoose = require('mongoose');
-
+mongoose.set('strictQuery', true);
 class RequestController {
     static async makeRequest(req, res) {
         const {error} = ValidationUtils.makeRequestValidation(req.body);
