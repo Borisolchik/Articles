@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
 
   isLogged: boolean = false;
   name: string = '';
+  userInfo!: UserInfoType;
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
@@ -35,8 +36,7 @@ export class HeaderComponent implements OnInit {
         if ((data as DefaultResponseType).error !== undefined) {
           throw new Error((data as DefaultResponseType).message);
         }
-        const userInfo = data as UserInfoType;
-        console.log(userInfo);
+        this.userInfo = data as UserInfoType;
       });
   }
 
