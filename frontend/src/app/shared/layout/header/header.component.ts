@@ -5,6 +5,7 @@ import {DefaultResponseType} from "../../../../types/default-response.type";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {UserInfoType} from "../../../../types/user-info.type";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-header',
@@ -18,14 +19,25 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 
   ngOnInit(): void {
+
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
     })
+
+    this.userService.getUserInfo()
+      .subscribe((data: UserInfoType | DefaultResponseType) => {
+        if ((data as DefaultResponseType).error !== undefined) {
+          throw new Error((data as DefaultResponseType).message);
+        }
+        const userInfo = data as UserInfoType;
+        console.log(userInfo);
+      });
   }
 
   logout(): void {
