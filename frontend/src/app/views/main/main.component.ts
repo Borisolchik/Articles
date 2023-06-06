@@ -70,6 +70,7 @@ export class MainComponent implements OnInit {
     name: ['', [Validators.required]],
     phone: ['', [Validators.required]],
   })
+  category: string = '';
   @ViewChild('bannerPopup') bannerPopup!: TemplateRef<ElementRef>;
   @ViewChild('bannerPopupSuccess') bannerPopupSuccess!: TemplateRef<ElementRef>;
   title_service: string = '';
@@ -88,8 +89,10 @@ export class MainComponent implements OnInit {
   }
 
   openBannerPopup(service: string) {
-    this.bannerForm.value.service = service;
     this.dialog.open(this.bannerPopup);
+    this.bannerForm.value.service = service;
+    this.category = service;
+    console.log(this.bannerForm.value.service);
   }
 
   closeBannerPopup() {
@@ -113,12 +116,6 @@ export class MainComponent implements OnInit {
           next: (data:DefaultResponseType) => {
             this.dialog.closeAll();
             this.dialog.open(this.bannerPopupSuccess);
-            // this.dialogRef = this.dialog.open(this.popup);
-            // this.dialogRef.backdropClick()
-            //   .subscribe(() => {
-            //     this.router.navigate(['/']);
-            //   });
-            // this.cartService.setCount(0);
           }
         });
     }
