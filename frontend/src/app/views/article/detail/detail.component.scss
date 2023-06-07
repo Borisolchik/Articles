@@ -177,6 +177,13 @@
               border: 2px solid #709FDC;
               border-radius: 50%;
               margin-right: 26px;
+              position: relative;
+
+              img {
+                position: absolute;
+                bottom: 8px;
+                left: 8px;
+              }
             }
 
             .detail-comments-item-header-info {
@@ -216,15 +223,77 @@
             align-items: center;
 
             .detail-comments-item-footer-like {
+              display: flex;
+              align-items: center;
+              margin-right: 15px;
 
+              span {
+                font-family: 'Montserrat', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                color: $dark-blue-color;
+                margin-right: 3px;
+              }
+
+              a {
+                text-decoration: none;
+                margin-top: 2px;
+                cursor: pointer;
+              }
+
+              &.active {
+                span {
+                  color: $light-blue-color;
+                }
+                a {
+                  path {
+                    stroke: $light-blue-color;
+
+                  }
+                }
+              }
             }
 
             .detail-comments-item-footer-dislike {
+              display: flex;
+              align-items: center;
+              margin-right: 15px;
 
+              span {
+                font-family: 'Montserrat', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                color: $dark-blue-color;
+                margin-right: 3px;
+              }
+
+              a {
+                text-decoration: none;
+                margin-top: 2px;
+                cursor: pointer;
+              }
+
+              &.active {
+                span {
+                  color: $light-blue-color;
+                }
+                a {
+                  path {
+                    stroke: $light-blue-color;
+                  }
+                }
+              }
             }
 
             .detail-comments-item-footer-info {
+              display: flex;
+              align-items: center;
 
+              a {
+                cursor: pointer;
+              }
             }
           }
         }
