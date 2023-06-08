@@ -18,7 +18,9 @@
       </div>
       <div class="detail-main-related">
         <div class="detail-main-related-title">Читайте также:</div>
-        <article-card [article]="article" *ngFor="let article of productRelated"></article-card>
+        <div class="detail-main-related-items">
+          <article-card [article]="article" *ngFor="let article of productRelated"></article-card>
+        </div>
       </div>
     </div>
 

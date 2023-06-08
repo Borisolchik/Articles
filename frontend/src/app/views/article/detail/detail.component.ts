@@ -6,7 +6,6 @@ import {environment} from 'src/environments/environment';
 import {AuthService} from "../../../core/auth/auth.service";
 import {CommentService} from "../../../shared/services/comment.service";
 import {CommentType} from "../../../../types/comment.type";
-import {DefaultResponseType} from "../../../../types/default-response.type";
 
 @Component({
   selector: 'app-detail',
@@ -18,16 +17,11 @@ export class DetailComponent implements OnInit {
   product!: ArticleType;
   productRelated: ArticleType[] = [];
   isLogged: boolean = false;
-  comments!: {allCount: number, comments: CommentType[]};
-  offset: number = 3;
-
-
   serverStaticPath = environment.serverStaticPath;
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
-              private articleService: ArticleService,
-              private commentService: CommentService) {
+              private articleService: ArticleService) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 
@@ -46,12 +40,6 @@ export class DetailComponent implements OnInit {
           this.productRelated = data;
         })
 
-      this.commentService.getComments(this.offset, this.product.id)
-        .subscribe((data: {allCount: number, comments: CommentType[]}) => {
-          this.comments = data;
-        })
-
-      console.log(this.comments);
     })
 
   }

@@ -64,6 +64,13 @@
       }
 
       .detail-main-related {
+
+        .detail-main-related-items {
+          display: flex;
+          flex-flow: column;
+          gap: 60px;
+        }
+
         .detail-main-related-title {
           font-family: 'Lora', sans-serif;
           font-style: normal;
@@ -246,6 +253,7 @@
                 span {
                   color: $light-blue-color;
                 }
+
                 a {
                   path {
                     stroke: $light-blue-color;
@@ -279,6 +287,7 @@
                 span {
                   color: $light-blue-color;
                 }
+
                 a {
                   path {
                     stroke: $light-blue-color;
