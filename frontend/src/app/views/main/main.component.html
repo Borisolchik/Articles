@@ -339,6 +339,7 @@
         </div>
       </div>
       <div class="auth-button">
+        <div class="error" *ngIf="sendError">Произошла ошибка при отправке формы, попробуйте еще раз.</div>
         <button class="btn" [disabled]="bannerForm.invalid" (click)="requestBanner()">Оставить заявку</button>
       </div>
     </div>

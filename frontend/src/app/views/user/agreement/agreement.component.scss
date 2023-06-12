@@ -1,0 +1,32 @@
+.agreement {
+  .container {
+    .userAgreement {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 130%;
+      color: #1E1A2B;
+
+      .userAgreement-title {
+        margin-bottom: 20px;
+      }
+    }
+
+    .personalDataProcessing {
+      margin-bottom: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 130%;
+      color: #1E1A2B;
+
+      .personalDataProcessing-title {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

@@ -441,6 +441,18 @@
   .auth-button {
     margin-top: 20px;
 
+
+    .error {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      color: red;
+      margin-bottom: 5px;
+      max-width: 422px;
+    }
+
+
     .btn {
       width: 422px;
       height: 51px;

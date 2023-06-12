@@ -74,6 +74,7 @@ export class MainComponent implements OnInit {
   @ViewChild('bannerPopup') bannerPopup!: TemplateRef<ElementRef>;
   @ViewChild('bannerPopupSuccess') bannerPopupSuccess!: TemplateRef<ElementRef>;
   title_service: string = '';
+  sendError: boolean = false;
 
   constructor(private articleService: ArticleService,
               private dialog: MatDialog,
@@ -114,8 +115,13 @@ export class MainComponent implements OnInit {
       this.bannerService.requestBanner(paramsObject)
         .subscribe({
           next: (data:DefaultResponseType) => {
-            this.dialog.closeAll();
-            this.dialog.open(this.bannerPopupSuccess);
+            if (data.error) {
+              this.sendError = true;
+            } else {
+              this.dialog.closeAll();
+              this.dialog.open(this.bannerPopupSuccess);
+              this.bannerForm.reset();
+            }
           }
         });
     }

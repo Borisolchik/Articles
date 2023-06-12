@@ -36,7 +36,7 @@
         <div class="footer-main-description">
           <div class="footer-main-phone"><a href="tel:+74993431334">+7 (499) 343-13-34</a></div>
           <div class="footer-main-button">
-            <button class="btn">Перезвоните мне</button>
+            <button class="btn" (click)="openCallBackPopup()">Перезвоните мне</button>
           </div>
         </div>
       </div>
@@ -78,3 +78,51 @@
     </div>
   </div>
 </footer>
+
+<ng-template #callBackPopup>
+  <div class="popup" [formGroup]="callBackForm">
+    <div class="popup-close" (click)="closeCallBackPopup()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+        <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="popup-title general-title">Бесплатная консультация</div>
+    <div class="popup-form">
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [ngStyle]="{'border-color': callBackForm.get('name')?.invalid
+                 && (callBackForm.get('name')?.dirty || callBackForm.get('name')?.touched) ? 'red' : ''}"
+                 formControlName="name" placeholder="Ваше имя">
+        </div>
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [ngStyle]="{'border-color': callBackForm.get('phone')?.invalid
+                 && (callBackForm.get('phone')?.dirty || callBackForm.get('phone')?.touched) ? 'red' : ''}"
+                 formControlName="phone" placeholder="Ваш номер телефона">
+        </div>
+      </div>
+      <div class="auth-button">
+        <div class="error" *ngIf="sendError">Произошла ошибка при отправке формы, попробуйте еще раз.</div>
+        <button class="btn" [disabled]="callBackForm.invalid" (click)="requestBanner()">Заказать звонок</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popupSuccess>
+  <div class="success">
+    <div class="popup-close" (click)="closeCallBackPopup()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+        <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="success-title general-title">Спасибо за вашу заявку!</div>
+    <div class="success-description">Мы свяжемся с вами при первой же возможности.</div>
+    <div class="auth-button">
+      <button class="btn" (click)="closeCallBackPopup()">Окей</button>
+    </div>
+  </div>
+</ng-template>
