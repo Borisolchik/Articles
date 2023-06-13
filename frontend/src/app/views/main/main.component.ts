@@ -92,6 +92,9 @@ export class MainComponent implements OnInit {
   openBannerPopup(service: string) {
     this.dialog.open(this.bannerPopup);
     this.bannerForm.value.service = service;
+    this.bannerForm.patchValue(
+      {service: service}
+    )
     this.category = service;
     console.log(this.bannerForm.value.service);
   }
