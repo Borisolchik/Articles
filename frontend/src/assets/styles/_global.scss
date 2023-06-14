@@ -175,3 +175,24 @@ select::-ms-expand {
 .mat-mdc-dialog-container .mdc-dialog__surface {
   border-radius: 10px!important;
 }
+
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  color: $light-blue-color;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: $dark-blue-color;
+  margin-bottom: 20px;
+}
