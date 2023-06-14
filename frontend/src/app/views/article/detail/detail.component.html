@@ -13,9 +13,7 @@
       <div class="detail-header-image" style="background-image: url( {{serverStaticPath + product.image}} )"></div>
     </div>
     <div class="detail-main">
-      <div class="detail-main-info">
-        {{product.text}}
-      </div>
+      <div class="detail-main-info" [innerHTML]="product.text"></div>
       <div class="detail-main-related">
         <div class="detail-main-related-title">Читайте также:</div>
         <div class="detail-main-related-items">
