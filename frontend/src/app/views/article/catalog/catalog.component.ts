@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticleType} from "../../../../types/article.type";
 import {CategoryService} from "../../../shared/services/category.service";
@@ -28,7 +28,7 @@ export class CatalogComponent implements OnInit {
     this.articleService.getArticles()
       .subscribe(data => {
         this.pages = [];
-        for (let i=1; i <= data.pages; i++) {
+        for (let i = 1; i <= data.pages; i++) {
           this.pages.push(i);
         }
         this.articles = data.items;
@@ -47,11 +47,11 @@ export class CatalogComponent implements OnInit {
   }
 
   sort(value: string) {
-    console.log(this.activeParams);
     this.activeParams.categories = [value];
     this.router.navigate(['/catalog'], {
       queryParams: this.activeParams
     })
+
   }
 
   openPage(page: number) {

@@ -70,6 +70,7 @@
           svg.open {
             display: none;
           }
+
           svg.close {
             display: block;
           }
@@ -80,7 +81,7 @@
           width: 100%;
           z-index: 3;
           display: none;
-          right:0;
+          right: 0;
           padding: 12px 23px;
           box-sizing: border-box;
           border: 1.5px solid #B9D5FD;
@@ -101,6 +102,7 @@
             svg.minus {
               display: none;
             }
+
             svg.plus {
               display: block;
             }
@@ -115,6 +117,7 @@
               svg.minus {
                 display: block;
               }
+
               svg.plus {
                 display: none;
               }
@@ -122,7 +125,13 @@
 
             &:hover {
               cursor: pointer;
-              color: #071739;
+              color: $dark-blue-color;
+
+              svg.plus {
+                path {
+                  fill: $dark-blue-color;
+                }
+              }
             }
           }
         }
@@ -142,6 +151,7 @@
             svg.open {
               display: block;
             }
+
             svg.close {
               display: none;
             }

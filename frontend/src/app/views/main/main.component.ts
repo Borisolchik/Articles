@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import {FormBuilder, Validators} from "@angular/forms";
 import {RequestType} from "../../../types/request.type";
 import {BannerService} from "../../shared/services/banner.service";
+import {CategoryService} from "../../shared/services/category.service";
+import {CategoryType} from "../../../types/category.type";
 
 @Component({
   selector: 'app-main',
@@ -75,17 +77,24 @@ export class MainComponent implements OnInit {
   @ViewChild('bannerPopupSuccess') bannerPopupSuccess!: TemplateRef<ElementRef>;
   title_service: string = '';
   sendError: boolean = false;
+  categories: CategoryType[] = [];
 
   constructor(private articleService: ArticleService,
               private dialog: MatDialog,
               private fb: FormBuilder,
-              private bannerService: BannerService) {
+              private bannerService: BannerService,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
     this.articleService.getTopArticles()
       .subscribe((data: ArticleType[]) => {
         this.articles = data;
+      })
+
+    this.categoryService.getCategories()
+      .subscribe((data: CategoryType[]) => {
+        this.categories = data;
       })
   }
 
@@ -96,7 +105,6 @@ export class MainComponent implements OnInit {
       {service: service}
     )
     this.category = service;
-    console.log(this.bannerForm.value.service);
   }
 
   closeBannerPopup() {

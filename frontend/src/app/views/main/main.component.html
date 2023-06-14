@@ -18,7 +18,7 @@
             <div class="info-title">Акция</div>
             <div class="banner-title">Нужен грамотный <span>копирайтер</span>?</div>
             <div class="banner-description">Весь декабрь у нас действует акция на работу копирайтера.</div>
-            <button class="btn" (click)="openBannerPopup('Таргет')">Подробнее</button>
+            <button class="btn" (click)="openBannerPopup('Копирайтинг')">Подробнее</button>
           </div>
         </div>
       </ng-template>
@@ -29,7 +29,7 @@
             <div class="info-title">Новость дня</div>
             <div class="banner-title"><span>6 место</span> в ТОП-10 SMM-агенств Москвы!</div>
             <div class="banner-description">Мы благодарим каждого, кто голосовал за нас!</div>
-            <button class="btn" (click)="openBannerPopup('Таргет')">Подробнее</button>
+            <button class="btn" (click)="openBannerPopup('SMM')">Подробнее</button>
           </div>
         </div>
       </ng-template>
@@ -56,7 +56,7 @@
         <div class="services-item-info">
           <div class="services-item-price">От 7 500₽</div>
           <div class="services-item-action">
-            <button class="btn">Подробнее</button>
+            <button class="btn"  (click)="openBannerPopup('Дизайн')">Подробнее</button>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
         <div class="services-item-info">
           <div class="services-item-price">От 3 500₽</div>
           <div class="services-item-action">
-            <button class="btn">Подробнее</button>
+            <button class="btn"  (click)="openBannerPopup('SMM')">Подробнее</button>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
         <div class="services-item-info">
           <div class="services-item-price">От 1 000₽</div>
           <div class="services-item-action">
-            <button class="btn">Подробнее</button>
+            <button class="btn"  (click)="openBannerPopup('Таргет')">Подробнее</button>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@
           <div class="services-item-info">
             <div class="services-item-price">От 750₽</div>
             <div class="services-item-action">
-              <button class="btn">Подробнее</button>
+              <button class="btn" (click)="openBannerPopup('Копирайтинг')">Подробнее</button>
             </div>
           </div>
         </div>
@@ -319,11 +319,18 @@
     <div class="banner-popup-title general-title">Заявка на услугу</div>
     <div class="banner-popup-form">
       <div class="auth-inputs">
+<!--        <div class="auth-input">-->
+<!--          <input type="text" class="input"-->
+<!--                 [ngStyle]="{'border-color': bannerForm.get('service')?.invalid-->
+<!--                 && (bannerForm.get('service')?.dirty || bannerForm.get('service')?.touched) ? 'red' : ''}"-->
+<!--                 formControlName="service" placeholder="Категория" >-->
+<!--        </div>-->
         <div class="auth-input">
-          <input type="text" class="input"
-                 [ngStyle]="{'border-color': bannerForm.get('service')?.invalid
+          <select name="" id="" class="input"   [ngStyle]="{'border-color': bannerForm.get('service')?.invalid
                  && (bannerForm.get('service')?.dirty || bannerForm.get('service')?.touched) ? 'red' : ''}"
-                 formControlName="service" placeholder="Категория" >
+                  formControlName="service">
+            <option value="{{category.name}}" *ngFor="let category of categories">{{category.name}}</option>
+          </select>
         </div>
         <div class="auth-input">
           <input type="text" class="input"

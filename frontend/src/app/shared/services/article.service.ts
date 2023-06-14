@@ -27,4 +27,9 @@ export class ArticleService {
   getArticleRelated(url: string): Observable<ArticleType[]> {
     return this.http.get<ArticleType[]>(environment.api + 'articles/related/' + url);
   }
+
+  sortArticles(params: any): Observable<ArticleType[]> {
+    return this.http.get<ArticleType[]>(environment.api + 'articles/' + params);
+  }
+
 }

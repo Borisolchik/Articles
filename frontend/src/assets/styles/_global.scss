@@ -41,6 +41,21 @@ html, body {
   font-size: 14px;
   color: $dark-blue-color;
   padding: 17.5px 20px;
+  width: 100%;
+}
+
+select {
+  cursor: pointer;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 .mat-mdc-menu-item {
