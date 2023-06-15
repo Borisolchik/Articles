@@ -1,11 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ArticleService} from "../../../shared/services/article.service";
 import {ArticleType} from "../../../../types/article.type";
 import {environment} from 'src/environments/environment';
 import {AuthService} from "../../../core/auth/auth.service";
+import {FormBuilder, Validators} from "@angular/forms";
 import {CommentService} from "../../../shared/services/comment.service";
-import {CommentType} from "../../../../types/comment.type";
+import {DefaultResponseType} from "../../../../types/default-response.type";
+import {ActiveParamsType} from "../../../../types/active-params.type";
+import {CommentParamsType} from "../../../../types/comment-params.type";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-detail',
@@ -18,10 +22,18 @@ export class DetailComponent implements OnInit {
   productRelated: ArticleType[] = [];
   isLogged: boolean = false;
   serverStaticPath = environment.serverStaticPath;
+  commentForm = this.fb.group({
+    comment: ['', [Validators.required]]
+  });
+  activeParams: CommentParamsType = {articleId: ''};
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
-              private articleService: ArticleService) {
+              private articleService: ArticleService,
+              private fb: FormBuilder,
+              private _snackBar: MatSnackBar,
+              private commentService: CommentService,
+              private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 
@@ -44,6 +56,24 @@ export class DetailComponent implements OnInit {
   }
 
   addComment() {
-
+    this.activeParams.articleId = this.product.id;
+    this.router.navigate(['/comments/article-comment-actions?'], {
+      queryParams: this.activeParams
+    });
+    const params = {
+      text: this.commentForm.value.comment,
+      article: this.product.id
+    }
+    if (params) {
+      this.commentService.addComment(params)
+        .subscribe((data: DefaultResponseType) => {
+          if (!data.error) {
+            this._snackBar.open('Комментарий успешно добавлен');
+            this.commentForm.reset();
+          } else {
+            this._snackBar.open('Ошибка отправки комментария');
+          }
+        })
+    }
   }
 }

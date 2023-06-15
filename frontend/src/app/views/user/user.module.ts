@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { AgreementComponent } from './agreement/agreement.component';
 import {SharedModule} from "../../shared/shared.module";
+import {ArticleRoutingModule} from "../article/article-routing.module";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {SharedModule} from "../../shared/shared.module";
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    ArticleRoutingModule,
     SharedModule,
     UserRoutingModule
   ]
