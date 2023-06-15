@@ -62,7 +62,7 @@
       </div>
       <textarea *ngIf="isLogged" placeholder="Напишите Ваш комментарий к статье..."></textarea>
       <div class="add-comment" *ngIf="isLogged">
-        <button class="btn">Опубликовать комментарий</button>
+        <button class="btn" (click)="addComment()">Опубликовать комментарий</button>
       </div>
       <div class="detail-comments-items">
         <div class="detail-comments-item">

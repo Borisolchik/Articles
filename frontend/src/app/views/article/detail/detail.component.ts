@@ -41,7 +41,9 @@ export class DetailComponent implements OnInit {
         })
 
     })
+  }
 
+  addComment() {
 
   }
 }
