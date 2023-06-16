@@ -308,6 +308,22 @@
             }
           }
         }
+
+        .detail-comments-items-more {
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 20px;
+          color: $light-blue-color;
+          display: flex;
+          align-items: center;
+          margin-top: 60px;
+          cursor: pointer;
+
+          svg {
+            margin-left: 10px;
+          }
+        }
       }
     }
   }

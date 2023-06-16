@@ -29,7 +29,8 @@ export class DetailComponent implements OnInit {
   comments: {allCount: number, comments: CommentType[]} = {
     allCount: 3,
     comments: []
-  }
+  };
+  offset: number = 3;
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
@@ -49,6 +50,10 @@ export class DetailComponent implements OnInit {
       this.articleService.getArticle(params['url'])
         .subscribe((data: ArticleType) => {
           this.product = data;
+          this.commentService.getComments({offset: this.offset, article: this.product.id})
+            .subscribe((data: {allCount: number, comments: CommentType[]}) => {
+              this.comments = data;
+            })
         })
 
       this.articleService.getArticleRelated(params['url'])
@@ -56,11 +61,6 @@ export class DetailComponent implements OnInit {
           this.productRelated = data;
         })
     })
-
-    this.commentService.getComments({offset: 3, article: this.product.id})
-      .subscribe((data: {allCount: number, comments: CommentType[]}) => {
-        this.comments = data;
-      })
   }
 
   addComment() {
@@ -77,7 +77,7 @@ export class DetailComponent implements OnInit {
         .subscribe((data: DefaultResponseType) => {
           if (!data.error) {
             this._snackBar.open('Комментарий успешно добавлен');
-            this.commentService.getComments({offset: 3, article: this.product.id})
+            this.commentService.getComments({offset: this.offset, article: this.product.id})
               .subscribe((data: {allCount: number, comments: CommentType[]}) => {
                 this.comments = data;
               })
@@ -87,5 +87,9 @@ export class DetailComponent implements OnInit {
           }
         })
     }
+  }
+
+  commentsMore() {
+    this.offset = 13;
   }
 }
