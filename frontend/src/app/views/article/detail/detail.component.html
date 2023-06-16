@@ -65,26 +65,25 @@
         <button class="btn" (click)="addComment()" [disabled]="commentForm.invalid">Опубликовать комментарий</button>
       </div>
       <div class="detail-comments-items">
-        <div class="detail-comments-item">
+        <div class="detail-comments-item" *ngFor="let comment of comments.comments">
           <div class="detail-comments-item-header">
             <div class="detail-comments-item-header-image">
               <img src="assets/images/page/user.png" alt="User">
             </div>
             <div class="detail-comments-item-header-info">
               <div class="detail-comments-item-header-name">
-                Амелия
+                {{comment.user.name}}
               </div>
               <div class="detail-comments-item-header-time">
                 20.01.2023 23:00
+                {{comment.date}}
               </div>
             </div>
           </div>
-          <div class="detail-comments-item-main">Статья супер, спасибо! Взяла на заметку очень многое для себя и своей
-            фирмы по разработке пользовательского интерфейса. Хотелось бы послушать мнение других тоже!
-          </div>
+          <div class="detail-comments-item-main">{{comment.text}}</div>
           <div class="detail-comments-item-footer">
             <div class="detail-comments-item-footer-like active">
-              <span>51</span>
+              <span>{{comment.likesCount}}</span>
               <a>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -97,7 +96,7 @@
               </a>
             </div>
             <div class="detail-comments-item-footer-dislike">
-              <span>2</span>
+              <span>{{comment.dislikesCount}}</span>
               <a>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path

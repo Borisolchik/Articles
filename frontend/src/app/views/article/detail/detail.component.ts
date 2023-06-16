@@ -7,9 +7,9 @@ import {AuthService} from "../../../core/auth/auth.service";
 import {FormBuilder, Validators} from "@angular/forms";
 import {CommentService} from "../../../shared/services/comment.service";
 import {DefaultResponseType} from "../../../../types/default-response.type";
-import {ActiveParamsType} from "../../../../types/active-params.type";
 import {CommentParamsType} from "../../../../types/comment-params.type";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {CommentType} from "../../../../types/comment.type";
 
 @Component({
   selector: 'app-detail',
@@ -26,6 +26,10 @@ export class DetailComponent implements OnInit {
     comment: ['', [Validators.required]]
   });
   activeParams: CommentParamsType = {articleId: ''};
+  comments: {allCount: number, comments: CommentType[]} = {
+    allCount: 3,
+    comments: []
+  }
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
@@ -51,8 +55,12 @@ export class DetailComponent implements OnInit {
         .subscribe((data: ArticleType[]) => {
           this.productRelated = data;
         })
-
     })
+
+    this.commentService.getComments({offset: 3, article: this.product.id})
+      .subscribe((data: {allCount: number, comments: CommentType[]}) => {
+        this.comments = data;
+      })
   }
 
   addComment() {
@@ -69,6 +77,10 @@ export class DetailComponent implements OnInit {
         .subscribe((data: DefaultResponseType) => {
           if (!data.error) {
             this._snackBar.open('Комментарий успешно добавлен');
+            this.commentService.getComments({offset: 3, article: this.product.id})
+              .subscribe((data: {allCount: number, comments: CommentType[]}) => {
+                this.comments = data;
+              })
             this.commentForm.reset();
           } else {
             this._snackBar.open('Ошибка отправки комментария');
