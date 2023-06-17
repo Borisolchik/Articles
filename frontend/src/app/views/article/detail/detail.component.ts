@@ -30,7 +30,8 @@ export class DetailComponent implements OnInit {
     allCount: 3,
     comments: []
   };
-  offset: number = 3;
+  offset: number = 0;
+  showComments: number = 3;
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
@@ -90,6 +91,7 @@ export class DetailComponent implements OnInit {
   }
 
   commentsMore() {
-    this.offset = 13;
+    console.log(this.showComments);
+    this.showComments += 10;
   }
 }
