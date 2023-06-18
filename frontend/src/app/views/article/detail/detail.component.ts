@@ -32,6 +32,8 @@ export class DetailComponent implements OnInit {
   };
   offset: number = 0;
   showComments: number = 3;
+  activeLike: boolean = false;
+  activeDislike: boolean = false;
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
@@ -91,7 +93,37 @@ export class DetailComponent implements OnInit {
   }
 
   commentsMore() {
-    console.log(this.showComments);
     this.showComments += 10;
+  }
+
+  addAction(params: string, id: string) {
+    if (params === 'like') {
+      this.activeLike = true;
+    } else if (params === 'dislike') {
+      this.activeDislike = true;
+    }
+    this.commentService.addAction(params, id)
+      .subscribe((data: DefaultResponseType) => {
+        if (!data.error) {
+          this.activeLike = true;
+          this.commentService.getComments({offset: this.offset, article: this.product.id})
+            .subscribe((data: {allCount: number, comments: CommentType[]}) => {
+              this.comments = data;
+            })
+        } else {
+          this._snackBar.open('Ошибка действия');
+        }
+      })
+  }
+
+  getActionsForComments(id: string) {
+    this.commentService.getActionsForComments(id)
+      .subscribe((data:{comment: string, action: string}[] | DefaultResponseType) => {
+       if (data as DefaultResponseType) {
+         this._snackBar.open('Ошибка действия');
+       } else if (data as {comment: string, action: string}[]) {
+         this._snackBar.open('Жалоба отправлена');
+       }
+      })
   }
 }
