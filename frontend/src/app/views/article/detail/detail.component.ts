@@ -10,6 +10,7 @@ import {DefaultResponseType} from "../../../../types/default-response.type";
 import {CommentParamsType} from "../../../../types/comment-params.type";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {CommentType} from "../../../../types/comment.type";
+import {LoaderService} from "../../../shared/services/loader.service";
 
 @Component({
   selector: 'app-detail',
@@ -40,12 +41,14 @@ export class DetailComponent implements OnInit {
               private articleService: ArticleService,
               private fb: FormBuilder,
               private _snackBar: MatSnackBar,
+              private loaderService: LoaderService,
               private commentService: CommentService,
               private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
   }
 
   ngOnInit(): void {
+    this.loaderService.show();
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
     })
