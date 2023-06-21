@@ -59,6 +59,7 @@ export class DetailComponent implements OnInit {
           this.commentService.getComments({offset: this.offset, article: this.product.id})
             .subscribe((data: {allCount: number, comments: CommentType[]}) => {
               this.comments = data;
+              console.log(this.comments.comments);
             })
         })
 
